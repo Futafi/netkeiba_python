@@ -1,4 +1,6 @@
 # Byte-compiled / optimized / DLL files
+keiba-10y.json
+keiba-10y.csv
 __pycache__/
 *.py[cod]
 *$py.class
