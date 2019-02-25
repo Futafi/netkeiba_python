@@ -22,7 +22,7 @@ $ scrapy crawl netkeiba -o keiba-10y.json
 保存されたデータを加工して CSV 形式に変換する。
 
 ```
-$ python jsontocsv.py -i keiba-10y.json -o keiba-10y.csv[
+$ python jsontocsv.py -i keiba-10y.json -o keiba-10y.csv
 ```
 
 どのようなデータが得られるかは CSV のヘッダを参照すること。
