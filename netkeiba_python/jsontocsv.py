@@ -398,7 +398,7 @@ def parse_horse(horse):
 
 
 def main(infile, outfile):
-    with open(infile) as f:
+    with open(infile,encoding="UTF-8") as f:
         data = json.load(f)
 
     with open(outfile, 'w') as f:
