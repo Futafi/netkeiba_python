@@ -4,8 +4,7 @@ import scrapy
 
 
 # この日付けより後のデータのみ取得する
-#DATA_MIN = '20071231'
-DATA_MIN = '20190224'
+DATA_MIN = '20071231'
 # JSON のキー
 KEYS = ['order',
         'frame',
