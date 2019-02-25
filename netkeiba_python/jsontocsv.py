@@ -2,6 +2,7 @@ import argparse
 import csv
 import json
 import re
+import os
 
 
 HEADER = [# race information
@@ -418,16 +419,16 @@ def main(infile, outfile):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i',
-                        '--infile',
+    parser.add_argument('infile',
                         help='入力となる JSON ファイル',
-                        type=str,
-                        required=True)
+                        type=str)
     parser.add_argument('-o',
                         '--outfile',
                         help='出力となる CSV ファイル',
-                        type=str,
-                        required=True)
+                        type=str)
     args = parser.parse_args()
+    
+    if not args.outfile:
+        args.outfile = os.path.splitext(args.infile)[0]+'.csv'
 
     main(args.infile, args.outfile)
