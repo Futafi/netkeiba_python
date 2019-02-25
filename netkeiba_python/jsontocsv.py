@@ -7,6 +7,7 @@ import os
 
 HEADER = [# race information
           'race_id',
+          'uid',
           'date',
           'year',
           'month',
@@ -302,8 +303,9 @@ def parse_prise(prise):
 
 def parse_race(race_id, race):
     title = race['title']
+    uid = race['uid']
     date, year, month, day = parse_title(title)
-    race_info = [race_id, date, year, month, day]
+    race_info = [race_id, uid, date, year, month, day]
     race_info += [1 if (i + 1) == month else 0 for i in range(12)]
 
     g1, g2, g3 = parse_class(title)

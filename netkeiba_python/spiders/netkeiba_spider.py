@@ -4,7 +4,8 @@ import scrapy
 
 
 # この日付けより後のデータのみ取得する
-DATA_MIN = '20071231'
+#DATA_MIN = '20071231'
+DATA_MIN = '20190224'
 # JSON のキー
 KEYS = ['order',
         'frame',
@@ -67,11 +68,15 @@ class NetkeibaSpider(scrapy.Spider):
         if len(response.css('.race_table_01 tr')) < 2:
             return
 
-        result = {'title': None,
+        result = {'uid': None,
+                  'title': None,
                   'horses': [],
                   'diary': None,
                   'smalltxt': None}
 
+        if response.css('ul.race_place a.active::attr(href)'):
+            result['uid'] = response.css('ul.race_place a.active::attr(href)').extract_first().split('/')[-2]
+            
         if response.css('title::text'):
             result['title'] = response.css('title::text').extract_first()
 
